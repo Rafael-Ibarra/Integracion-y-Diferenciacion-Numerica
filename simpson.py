@@ -42,7 +42,8 @@ def procesoSimpson(funcion, cuartaDerivada, segmentos, a, b):
     size = len(fx)
 
     if(segmentos % 2 == 0):
-        return reglaPar(funcion, cuartaDerivada, segmentos, a, b)
+        i, e = reglaPar(cuartaDerivada, fx, segmentos, a, b)
+        return i, e
     elif(segmentos > 3):
         separacion = segmentos - 3
         
@@ -51,4 +52,5 @@ def procesoSimpson(funcion, cuartaDerivada, segmentos, a, b):
 
         return (i1 + i2), (e1 + e2)
     else:
-        return reglaImpar(funcion, cuartaDerivada, segmentos, a, b)
+        i, e = reglaImpar(cuartaDerivada, fx, a, b)
+        return i, e
